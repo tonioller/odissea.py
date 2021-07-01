@@ -69,7 +69,7 @@ def encrypt(text,s):
 #check the above function
 text = "CEASER CIPHER DEMO"
 #GIWEVIBEQTPIIWX
-s = 4
+s = 5
 
 print ("Plain Text : " + text)
 print ("Shift pattern : " + str(s))
