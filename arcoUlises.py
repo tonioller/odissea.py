@@ -6,6 +6,7 @@ import os
 
 images = ['alfa.png', 'beta.png','gamma.png', 'epsilon.png', 'lambda.png', 'fi.png', 'mi.png', 'ro.png', 'eta.png', 'xi.png', 'z.png', 'theta.png', 'tau.png', 'pi.png', 'psi.png']
 i=0;
+theWinner = random.randint(0,14);
 
 
 def drawCircle(x, y):
@@ -15,17 +16,22 @@ def drawCircle(x, y):
     turtle.circle(15)
 
 def fxn(x, y):
-    
+    global theWinner
     print("onClick"+str(x)+" "+str(y))
-    i=random.randint(0,14);
+    i = random.randint(0,14);
     print(F" {i}");
 
     wn.bgpic(images[i])
 
     
-    if (i==4):
+    if (i == theWinner):
         turtle.speed(5)
-        turtle.forward(550)
+        turtle.forward(850)
+
+        turtle.penup()
+        turtle.goto(-330, 55)
+        turtle.pendown()    
+        
         turtle.write('Congratulations!!!!!!!!')
         os.system('afplay fiesta.mp3')
         turtle.clear()
@@ -34,12 +40,11 @@ def fxn(x, y):
      
 def init():
     turtle.speed(500)
-    drawCircle(100, 40)
-    drawCircle(150, 40)
-    drawCircle(200, 40)
-    drawCircle(250, 40)
+    for x in range(40,600,50):
+         drawCircle(x, 40)
+         drawCircle(x+50, 40)
     turtle.penup()
-    turtle.goto(-300, 55)
+    turtle.goto(-330, 55)
     turtle.pendown()    
     turtle.dot(15)
 
@@ -48,6 +53,7 @@ def init():
 
 init()
 wn = turtle.Screen()
+
 wn.bgpic(images[i])
 
 wn.onclick(fxn)
